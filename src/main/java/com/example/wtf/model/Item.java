@@ -40,7 +40,7 @@ public class Item {
 	private float price;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Comment> comments = new ArrayList();
+	private List<Comment> comments;
 
 	public long getId() {
 		return id;

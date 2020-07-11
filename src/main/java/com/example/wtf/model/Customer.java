@@ -13,6 +13,15 @@ import javax.persistence.Table;
 @Entity(name = "customer")
 @Table(name = "customer")
 public class Customer extends User{
+	
+	
+	public Customer() {
+		super();
+	}
+
+	public Customer(String userName, String firstName, String lastName) {
+		super(userName,firstName,lastName);
+	}
 
 
 }
