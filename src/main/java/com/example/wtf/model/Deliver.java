@@ -14,6 +14,13 @@ import javax.persistence.Table;
 @Table(name = "deliver")
 public class Deliver extends User{
 
+	
+	public Deliver() {
+		super();
+	}
 
+	public Deliver(String userName, String firstName, String lastName) {
+		super(userName,firstName,lastName);
+	}
 
 }

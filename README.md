@@ -1,51 +1,33 @@
 "# wtf" 
 
-
-#http://localhost:8080/api/user
-
+## All API
+```
 {
-  "_embedded" : {
-    "user" : [ {
-      "userName" : "tester01",
-      "firstName" : "Frodo",
-      "lastName" : "Baggins",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/api/user/1"
-        },
-        "user" : {
-          "href" : "http://localhost:8080/api/user/1"
-        }
-      }
-    }, {
-      "userName" : "admin",
-      "firstName" : "Sovannoty",
-      "lastName" : "Chea",
-      "_links" : {
-        "self" : {
-          "href" : "http://localhost:8080/api/user/2"
-        },
-        "user" : {
-          "href" : "http://localhost:8080/api/user/2"
-        }
-      }
-    } ]
-  },
   "_links" : {
-    "self" : {
-      "href" : "http://localhost:8080/api/user"
+    "shop" : {
+      "href" : "http://localhost:8080/api/shop{?page,size,sort}",
+      "templated" : true
+    },
+    "user" : {
+      "href" : "http://localhost:8080/api/user{?page,size,sort}",
+      "templated" : true
+    },
+    "deliver" : {
+      "href" : "http://localhost:8080/api/deliver{?page,size,sort}",
+      "templated" : true
+    },
+    "category" : {
+      "href" : "http://localhost:8080/api/category{?page,size,sort}",
+      "templated" : true
     },
     "profile" : {
-      "href" : "http://localhost:8080/api/profile/user"
-    },
-    "search" : {
-      "href" : "http://localhost:8080/api/user/search"
+      "href" : "http://localhost:8080/api/profile"
     }
-  },
-  "page" : {
-    "size" : 20,
-    "totalElements" : 2,
-    "totalPages" : 1,
-    "number" : 0
   }
 }
+
+```
+
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
