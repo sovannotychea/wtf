@@ -18,28 +18,26 @@ import javax.persistence.Table;
  * @author sovannoty
  *
  */
-@Entity(name = "shop")
-@Table(name = "shop")
-public class Shop {
-
+@Entity(name = "orders")
+@Table(name = "orders")
+public class Order {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	@ManyToOne
+	private Shop shop;
 	
-	private String name;
-	
-	private String address;
-	
-	private String phoneNumber;
-	
-	private String email;
-	
+	@ManyToOne
+	private Customer customer;
+
+	@ManyToOne
+	private Deliver deliver;
+
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> items;
 	
-	@ManyToOne
-	private User owner;
-
 	public long getId() {
 		return id;
 	}
@@ -48,36 +46,28 @@ public class Shop {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public Shop getShop() {
+		return shop;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 
-	public String getAddress() {
-		return address;
+	public Customer getCustomer() {
+		return customer;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public Deliver getDeliver() {
+		return deliver;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public void setDeliver(Deliver deliver) {
+		this.deliver = deliver;
 	}
 
 	public List<Item> getItems() {
@@ -87,15 +77,8 @@ public class Shop {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-
-	public User getOwner() {
-		return owner;
-	}
-
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
-
-
+	
+	
+	
 
 }
