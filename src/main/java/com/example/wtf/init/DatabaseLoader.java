@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.example.wtf.model.Category;
+import com.example.wtf.model.Customer;
 import com.example.wtf.model.Deliver;
 import com.example.wtf.model.Item;
 import com.example.wtf.model.Shop;
@@ -15,7 +16,7 @@ import com.example.wtf.model.User;
 import com.example.wtf.repo.CategoryRepository;
 import com.example.wtf.repo.DeliverRepository;
 import com.example.wtf.repo.ShopRepository;
-import com.example.wtf.repo.UserRepository;
+import com.example.wtf.repo.CustomerRepository;
 
 /**
  * @author sovannoty
@@ -25,7 +26,7 @@ import com.example.wtf.repo.UserRepository;
 public class DatabaseLoader implements CommandLineRunner {
 
 	@Autowired
-	private UserRepository userRepository;
+	private CustomerRepository customerRepository;
 	
 	 @Autowired
 	 private ShopRepository shopRepository;
@@ -34,18 +35,19 @@ public class DatabaseLoader implements CommandLineRunner {
 	 private CategoryRepository categoryRepository;
 	 @Autowired
 	 private DeliverRepository deliverRepository;
+	
 
 	@Override
 	public void run(String... strings) throws Exception {
 		Category food = this.categoryRepository.save(new Category("food"));
 		Category drink = this.categoryRepository.save(new Category("drink"));
 		Category sweet = this.categoryRepository.save(new Category("sweet"));
-		User owner = this.userRepository.save(new User("owner001", "owner0001", "test"));
+		Customer owner = this.customerRepository.save(new Customer("owner001", "owner0001", "test"));
 		Deliver deliver = this.deliverRepository.save(new Deliver("deliver001", "deliver0001", "test"));
 		
 		
-		this.userRepository.save(new User("tester01", "Frodo", "Baggins"));
-		this.userRepository.save(new User("admin", "Sovannoty", "Chea"));
+		this.customerRepository.save(new Customer("tester01", "Frodo", "Baggins"));
+		this.customerRepository.save(new Customer("admin", "Sovannoty", "Chea"));
 		
 		
 		List<Item> items = new ArrayList();

@@ -5,24 +5,23 @@ package com.example.wtf.repo;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.example.wtf.model.User;
+import com.example.wtf.model.Customer;
 
 /**
  * @author sovannoty
  *
  */
-@RepositoryRestResource(collectionResourceRel = "user", path = "user")
-public interface UserRepository extends PagingAndSortingRepository<User, Long> {
+@RepositoryRestResource(collectionResourceRel = "customer", path = "customer")
+public interface CustomerRepository extends PagingAndSortingRepository<Customer, Long> {
 
 	
-	List<User> findAll();
+	List<Customer> findAll();
 	
-	List<User> findByLastName(@Param("name") String name);
+	List<Customer> findByLastName(@Param("name") String name);
   
   
   

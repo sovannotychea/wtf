@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Columns;
@@ -18,7 +19,7 @@ import org.hibernate.annotations.Columns;
  * @author sovannoty
  *
  */
-@Entity(name = "user")
+@MappedSuperclass
 public class User {
 
 	@Id
@@ -66,23 +67,6 @@ public class User {
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
-	}
-
-	@Override
-	public int hashCode() {
-
-		return Objects.hash(id, userName, firstName, lastName);
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o)
-			return true;
-		if (o == null || getClass() != o.getClass())
-			return false;
-		User person = (User) o;
-		return Objects.equals(id, person.id) && Objects.equals(userName, person.userName)
-				&& Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
 	}
 
 }

@@ -65,6 +65,12 @@ class SqliteConfig {
 }
 
 @Configuration
+@Profile("postgres")
+@PropertySource("classpath:persistence-postgres.properties")
+class PostgresConfig {
+}
+
+@Configuration
 @Profile("h2")
 @PropertySource("classpath:persistence-h2.properties")
 class H2Config {

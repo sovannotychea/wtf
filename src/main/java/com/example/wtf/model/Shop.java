@@ -38,7 +38,7 @@ public class Shop {
 	private List<Item> items;
 	
 	@ManyToOne
-	private User owner;
+	private Customer owner;
 
 	public long getId() {
 		return id;
@@ -88,11 +88,11 @@ public class Shop {
 		this.items = items;
 	}
 
-	public User getOwner() {
+	public Customer getOwner() {
 		return owner;
 	}
 
-	public void setOwner(User owner) {
+	public void setOwner(Customer owner) {
 		this.owner = owner;
 	}
 

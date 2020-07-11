@@ -25,8 +25,8 @@ public class Comment {
 	private String review;
 	
 	@ManyToOne
-    @JoinColumn(name="customer_id")
-	private Customer customer;
+    @JoinColumn(name="owner_id")
+	private Customer owner;
 
 	public long getId() {
 		return id;
@@ -51,5 +51,15 @@ public class Comment {
 	public void setReview(String review) {
 		this.review = review;
 	}
+
+	public Customer getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Customer owner) {
+		this.owner = owner;
+	}
+	
+	
 	
 }

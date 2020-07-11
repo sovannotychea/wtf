@@ -30,7 +30,7 @@ public class Order {
 	private Shop shop;
 	
 	@ManyToOne
-	private Customer customer;
+	private Customer owner;
 
 	@ManyToOne
 	private Deliver deliver;
@@ -54,12 +54,13 @@ public class Order {
 		this.shop = shop;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+
+	public Customer getOwner() {
+		return owner;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setOwner(Customer owner) {
+		this.owner = owner;
 	}
 
 	public Deliver getDeliver() {
