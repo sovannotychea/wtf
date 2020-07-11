@@ -31,6 +31,9 @@ public class Item {
 	private String name;
 
 	private String description;
+	
+	@ManyToOne
+    private Shop shop;
 
 	@ManyToOne
 	private Category category;
@@ -96,6 +99,14 @@ public class Item {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	public Shop getShop() {
+		return shop;
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
 	}
 	
 	

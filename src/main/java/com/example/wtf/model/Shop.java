@@ -33,8 +33,8 @@ public class Shop {
 	private String phoneNumber;
 	
 	private String email;
-	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+
+	@OneToMany
 	private List<Item> items;
 	
 	@ManyToOne

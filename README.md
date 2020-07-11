@@ -29,5 +29,12 @@
 ```
 
 
+##TODO: 03
+
+```
+http://localhost:8080/api/item/search/findByNameContainingIgnoreCase?name=sendw
+```
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
