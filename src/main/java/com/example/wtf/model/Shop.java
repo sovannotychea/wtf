@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -35,6 +36,9 @@ public class Shop {
 	
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Item> menu;
+	
+	@ManyToOne
+	private User owner;
 
 	public long getId() {
 		return id;

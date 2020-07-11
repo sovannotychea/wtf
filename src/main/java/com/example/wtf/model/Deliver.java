@@ -12,10 +12,8 @@ import javax.persistence.Table;
  */
 @Entity(name = "deliver")
 @Table(name = "deliver")
-public class Deliver extends Person{
+public class Deliver extends User{
 
-	public Deliver(String firstName, String lastName) {
-		super(firstName, lastName);
-	}
+
 
 }

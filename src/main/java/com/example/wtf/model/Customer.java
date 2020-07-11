@@ -12,10 +12,7 @@ import javax.persistence.Table;
  */
 @Entity(name = "customer")
 @Table(name = "customer")
-public class Customer extends Person{
+public class Customer extends User{
 
-	public Customer(String firstName, String lastName) {
-		super(firstName, lastName);
-	}
 
 }

@@ -18,18 +18,29 @@ import org.hibernate.annotations.Columns;
  * @author sovannoty
  *
  */
-@Entity(name = "person")
-public class Person {
+@Entity(name = "user")
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+
+	@Column(name = "user_name")
+	private String userName;
 
 	@Column(name = "first_name")
 	private String firstName;
 
 	@Column(name = "last_name")
 	private String lastName;
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -46,10 +57,13 @@ public class Person {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public Person() {
+
+	public User() {
 
 	}
-	public Person(String firstName, String lastName) {
+
+	public User(String userName, String firstName, String lastName) {
+		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
@@ -57,7 +71,7 @@ public class Person {
 	@Override
 	public int hashCode() {
 
-		return Objects.hash(id, firstName, lastName);
+		return Objects.hash(id, userName, firstName, lastName);
 	}
 
 	@Override
@@ -66,9 +80,9 @@ public class Person {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		Person person = (Person) o;
-		return Objects.equals(id, person.id) && Objects.equals(firstName, person.firstName)
-				&& Objects.equals(lastName, person.lastName);
+		User person = (User) o;
+		return Objects.equals(id, person.id) && Objects.equals(userName, person.userName)
+				&& Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName);
 	}
 
 }
