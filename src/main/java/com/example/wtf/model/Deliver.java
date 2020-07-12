@@ -23,4 +23,7 @@ public class Deliver extends User{
 		super(userName,firstName,lastName);
 	}
 
+	public Deliver(String userName, String phone) {
+		super(userName,phone);
+	}
 }

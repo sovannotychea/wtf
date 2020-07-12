@@ -13,7 +13,7 @@ import com.example.wtf.model.Shop;
  *
  */
 @RepositoryRestResource(collectionResourceRel = "deliver", path = "deliver")
-public interface DeliverRepository extends PagingAndSortingRepository<Deliver, Long> {
+public interface DeliverRepository extends PagingAndSortingRepository<Deliver, Long>,UserRepository<Deliver> {
 
 
 }

@@ -28,6 +28,9 @@ public class User {
 
 	@Column(name = "user_name")
 	private String userName;
+	
+	@Column(name = "phone_number")
+	private String phoneNumber;
 
 	@Column(name = "first_name")
 	private String firstName;
@@ -41,6 +44,15 @@ public class User {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getFirstName() {
@@ -61,6 +73,10 @@ public class User {
 
 	public User() {
 
+	}
+	public User(String userName, String phoneNumber) {
+		this.userName = userName;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public User(String userName, String firstName, String lastName) {

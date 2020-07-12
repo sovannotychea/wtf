@@ -51,8 +51,8 @@ public class DatabaseLoader implements CommandLineRunner {
 		Deliver deliver = this.deliverRepository.save(new Deliver("deliver001", "deliver0001", "test"));
 		
 		
-		this.customerRepository.save(new Customer("tester01", "Frodo", "Baggins"));
-		this.customerRepository.save(new Customer("admin", "Sovannoty", "Chea"));
+		this.customerRepository.save(new Customer("tester01", "010900074"));
+		this.customerRepository.save(new Customer("admin", "011202074"));
 		
 		Shop shop01 = new Shop();
 		shop01.setAddress("#67Eo st 454 Phnone Penh");
@@ -122,6 +122,9 @@ public class DatabaseLoader implements CommandLineRunner {
 	
 		shop02.setItems(items02);
 		this.shopRepository.save(shop02);
+		
+		
+		this.customerRepository.save(new Customer("admin01", "011202074"));
 		
 	}
 }

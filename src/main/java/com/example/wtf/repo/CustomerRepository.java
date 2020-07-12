@@ -16,7 +16,7 @@ import com.example.wtf.model.Customer;
  *
  */
 @RepositoryRestResource(collectionResourceRel = "customer", path = "customer")
-public interface CustomerRepository extends PagingAndSortingRepository<Customer, Long> {
+public interface CustomerRepository extends PagingAndSortingRepository<Customer, Long>,UserRepository<Customer> {
 
 	
 	List<Customer> findAll();
