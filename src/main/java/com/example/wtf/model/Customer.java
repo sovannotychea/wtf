@@ -12,20 +12,14 @@ import javax.persistence.Table;
  */
 @Entity(name = "customer")
 @Table(name = "customer")
-public class Customer extends User{
-	
-	
+public class Customer extends User {
+
 	public Customer() {
 		super();
 	}
 
-	public Customer(String userName, String firstName, String lastName) {
-		super(userName,firstName,lastName);
-	}
-	
 	public Customer(String userName, String phone) {
-		super(userName,phone);
+		super(userName, phone);
 	}
-
 
 }

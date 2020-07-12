@@ -23,7 +23,5 @@ public interface CustomerRepository extends PagingAndSortingRepository<Customer,
 	
 	List<Customer> findByLastName(@Param("name") String name);
   
-  
-  
 
 }

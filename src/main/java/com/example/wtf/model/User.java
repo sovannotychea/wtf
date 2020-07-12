@@ -6,14 +6,10 @@ package com.example.wtf.model;
 import java.util.Objects;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.Columns;
 
 /**
  * @author sovannoty
@@ -37,6 +33,16 @@ public class User {
 
 	@Column(name = "last_name")
 	private String lastName;
+	
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -83,6 +89,24 @@ public class User {
 		this.userName = userName;
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+
+		if (this == o)
+			return true;
+		if (!(o instanceof Customer))
+			return false;
+		User employee = (User) o;
+		return Objects.equals(this.getId(), employee.getId())
+				&& Objects.equals(this.getUserName(), employee.getUserName())
+				&& Objects.equals(this.getPhoneNumber(), employee.getPhoneNumber());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.getId(), this.getUserName(), this.getPhoneNumber());
 	}
 
 }

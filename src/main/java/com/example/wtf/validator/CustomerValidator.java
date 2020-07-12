@@ -26,23 +26,23 @@ public class CustomerValidator implements Validator {
 
 		Customer user = (Customer) obj;
 		if (checkInputString(user.getUserName())) {
-			errors.rejectValue("UserName", "UserName.empty");
+			errors.rejectValue("userName", "userName.empty");
 		}
 
 		if (checkInputString(user.getPhoneNumber())) {
-			errors.rejectValue("PhoneNumber", "PhoneNumber.empty");
+			errors.rejectValue("phoneNumber", "phoneNumber.empty");
 		}
 
 		Optional<Customer> deliver = customerRepository.findByPhoneNumber(user.getPhoneNumber());
 
-		if (deliver.get() != null) {
-			errors.rejectValue("PhoneNumber", "PhoneNumber.exist");
+		if (deliver.isPresent()) {
+			errors.rejectValue("phoneNumber", "phoneNumber.exist");
 		}
 		
 		deliver = customerRepository.findByUserName(user.getUserName());
 
-		if (deliver.get() != null) {
-			errors.rejectValue("UserName", "UserName.exist");
+		if (deliver.isPresent()) {
+			errors.rejectValue("userName", "userName.exist");
 		}
 	}
 

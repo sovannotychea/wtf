@@ -46,8 +46,8 @@ public class DatabaseLoader implements CommandLineRunner {
 		Category food = this.categoryRepository.save(new Category("food"));
 		Category drink = this.categoryRepository.save(new Category("drink"));
 		Category sweet = this.categoryRepository.save(new Category("sweet"));
-		Customer owner01 = this.customerRepository.save(new Customer("owner001", "owner0001", "test"));
-		Customer owner02 = this.customerRepository.save(new Customer("owner002", "owner0002", "test"));
+		Customer owner01 = this.customerRepository.save(new Customer("owner001", "099999999"));
+		Customer owner02 = this.customerRepository.save(new Customer("owner002", "088888888"));
 		Deliver deliver = this.deliverRepository.save(new Deliver("deliver001", "deliver0001", "test"));
 		
 		
@@ -123,8 +123,8 @@ public class DatabaseLoader implements CommandLineRunner {
 		shop02.setItems(items02);
 		this.shopRepository.save(shop02);
 		
+		Customer customer01 = new Customer("customer01","0977777777");
 		
-		this.customerRepository.save(new Customer("admin01", "011202074"));
 		
 	}
 }
