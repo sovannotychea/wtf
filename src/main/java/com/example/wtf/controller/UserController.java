@@ -5,18 +5,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.wtf.model.Customer;
-import com.example.wtf.repo.CustomerRepository;
+import com.example.wtf.model.User;
+import com.example.wtf.repo.UserRepository;
 
 @RestController
-public class CustomerController {
-	
+public class UserController {
+
 	@Autowired
-	private CustomerRepository repository;
-	
-	
-	 @PostMapping("/customer")
-	  Customer newEmployee(@RequestBody Customer newEmployee) {
-	    return repository.save(newEmployee);
-	  }
+	private UserRepository repository;
+
+	@PostMapping("/user")
+	User newEmployee(@RequestBody User newUser) {
+		User user = (User) repository.save(newUser);
+		return user;
+	}
 }

@@ -3,6 +3,7 @@
  */
 package com.example.wtf.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -35,10 +36,10 @@ public class Shop {
 	private String email;
 
 	@OneToMany
-	private List<Item> items;
+	private Collection<Item> items;
 	
 	@ManyToOne
-	private Customer owner;
+	private User owner;
 
 	public long getId() {
 		return id;
@@ -80,19 +81,19 @@ public class Shop {
 		this.email = email;
 	}
 
-	public List<Item> getItems() {
+	public Collection<Item> getItems() {
 		return items;
 	}
 
-	public void setItems(List<Item> items) {
+	public void setItems(Collection<Item> items) {
 		this.items = items;
 	}
 
-	public Customer getOwner() {
+	public User getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Customer owner) {
+	public void setOwner(User owner) {
 		this.owner = owner;
 	}
 

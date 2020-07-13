@@ -4,6 +4,7 @@
 package com.example.wtf.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -43,7 +44,7 @@ public class Item {
 	private float price;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	private List<Comment> comments;
+	private Collection<Comment> comments;
 
 	public long getId() {
 		return id;
@@ -93,11 +94,11 @@ public class Item {
 		this.category = category;
 	}
 
-	public List<Comment> getComments() {
+	public Collection<Comment> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
+	public void setComments(Collection<Comment> comments) {
 		this.comments = comments;
 	}
 

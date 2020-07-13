@@ -5,31 +5,28 @@ package com.example.wtf.validator;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.example.wtf.model.Deliver;
+import com.example.wtf.model.User;
 import com.example.wtf.repo.UserRepository;
 
 /**
  * @author sovannoty
  *
  */
-abstract class UserValodator implements Validator {
+@Component("beforeCreateUserValodator")
+public class UserValodator implements Validator {
 	
-	
-	UserRepository userRepository;
-
-	public abstract UserRepository getUserRepository() ;
-
-	public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+	@Autowired
+	private UserRepository userRepository;
 
 	@Override
     public void validate(Object obj, Errors errors) {
 
-    	Deliver user = (Deliver) obj;
+    	User user = (User) obj;
         if (checkInputString(user.getUserName())) {
             errors.rejectValue("UserName", "UserName.empty");
         }
@@ -38,14 +35,14 @@ abstract class UserValodator implements Validator {
             errors.rejectValue("PhoneNumber", "PhoneNumber.empty");
         }
         
-        Optional<Deliver> deliver = this.getUserRepository().findByPhoneNumber(user.getPhoneNumber());
+        User deliver = this.userRepository.findByPhoneNumber(user.getPhoneNumber());
         
-        if(deliver.get() != null) {
+        if(deliver != null) {
         	 errors.rejectValue("PhoneNumber", "PhoneNumber.exist");
         }
-        deliver = this.getUserRepository().findByUserName(user.getUserName());
+        deliver = this.userRepository.findByUserName(user.getUserName());
 
-		if (deliver.isPresent()) {
+		if (deliver != null ) {
 			errors.rejectValue("userName", "userName.exist");
 		}
     }
@@ -53,4 +50,10 @@ abstract class UserValodator implements Validator {
     private boolean checkInputString(String input) {
         return (input == null || input.trim().length() == 0);
     }
+
+
+	@Override
+	public boolean supports(Class<?> clazz) {
+		return User.class.equals(clazz);
+	}
 }

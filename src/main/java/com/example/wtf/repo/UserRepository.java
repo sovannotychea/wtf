@@ -1,13 +1,13 @@
 package com.example.wtf.repo;
 
-import java.util.Optional;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-import org.springframework.data.repository.query.Param;
+import com.example.wtf.model.User;
 
-public interface UserRepository<T> {
+public interface UserRepository<T> extends PagingAndSortingRepository<User, Long> {
 
-	Optional<T> findByPhoneNumber(String phoneNumber);
+	User findByPhoneNumber(String phoneNumber);
 
-	Optional<T> findByUserName(String userName);
+	User findByUserName(String userName);
 
 }

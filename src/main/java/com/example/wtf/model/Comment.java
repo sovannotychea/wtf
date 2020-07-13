@@ -26,7 +26,7 @@ public class Comment {
 	
 	@ManyToOne
     @JoinColumn(name="owner_id")
-	private Customer owner;
+	private User owner;
 
 	public long getId() {
 		return id;
@@ -52,11 +52,11 @@ public class Comment {
 		this.review = review;
 	}
 
-	public Customer getOwner() {
+	public User getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Customer owner) {
+	public void setOwner(User owner) {
 		this.owner = owner;
 	}
 	
